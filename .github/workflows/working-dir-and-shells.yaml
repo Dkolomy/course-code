@@ -15,6 +15,9 @@ jobs:
             echo $GITHUB_SHA
             echo $GITHUB_REPOSITORY
             echo $GITHUB_WORKSPACE
+        - name: Change Working Dir
+          working-directory: /home/runner
+          run: pwd
   display-wd-info-widows:
     runs-on: windows-latest
     steps:
@@ -25,4 +28,8 @@ jobs:
             echo $GITHUB_SHA
             echo $GITHUB_REPOSITORY
             echo $GITHUB_WORKSPACE
-          
+        - name: Python Shell
+          shell: python
+          run: |
+            import platform
+            print(platform.processor())
